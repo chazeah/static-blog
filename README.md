@@ -1,4 +1,3 @@
-static-blog
+Octopress-based publishing platform
 ===========
-
-Octopress-backed writing platform.
+Hacked together to suit my needs. Lots of styles/functionality removed.
