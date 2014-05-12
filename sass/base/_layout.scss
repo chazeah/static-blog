@@ -1,0 +1,193 @@
+$max-width: 1100px;
+
+// Padding used for layout margins
+$ratio:        1.444;
+
+$pad-min:      13px; // horizontal gutter
+$pad-min-v:    9px; // vertical gutter
+
+$pad-narrow:   18px;
+$pad-narrow-v: 13px;
+
+$pad-medium:   26px;
+$pad-medium-v: 19px;
+
+$pad-wide:     26px;
+$pad-wide-v:   19px;
+
+// Sidebar widths used in media queries
+$sidebar-width-medium: 240px;
+$sidebar-pad-medium: 15px;
+$sidebar-pad-wide: 20px;
+$sidebar-width-wide: 300px;
+
+$indented-lists: false;
+
+// Float clear
+.group {
+  @include pie-clearfix;
+}
+
+html {
+  // background-color: $page-bg;
+}
+
+body {
+  -webkit-text-size-adjust: none;
+  max-width: $max-width;
+  position: relative;
+  margin: 0 auto;
+  padding: 1em;
+
+  > nav,
+  > footer,
+  #content > article,
+  #content > div > article,
+  #content > div > section,
+  #content .navigation-links,
+  div.pagination {
+    @extend .group;
+    padding: $pad-min-v $pad-min (1.5 * $pad-min-v);
+
+    @media only screen and (min-width: 480px) {
+      padding: $pad-narrow-v $pad-narrow (1.5 * $pad-narrow-v);
+    }
+
+    @media only screen and (min-width: 768px) {
+      padding: $pad-medium-v $pad-medium (1.5 * $pad-medium-v);
+    }
+
+    @media only screen and (min-width: 992px) {
+      padding: $pad-wide-v $pad-wide (1.5 * $pad-wide-v);
+    }
+  }
+
+  > header {
+    //font-size: 1em;
+
+    h1 {
+      display: inline;
+      font-size: inherit;
+    }
+
+    // To ease heading spacing, increase padding a bit more.
+    @media only screen and (max-width: 480px) {
+      padding-left: .5em;
+      padding-right: .5em;
+    }
+  }
+}
+
+.side-header {
+  display: none;
+}
+
+#content {
+  overflow: hidden;
+
+  > div,
+  > article {
+    width: 100%;
+  }
+}
+
+aside.sidebar {
+  display: none; // Hidden in mobile-first view.
+  float: none;
+  @extend .group;
+}
+
+.flex-content { max-width: 100%; height: auto; }
+
+.basic-alignment {
+  &.left { float: left; margin-right: 1.5em; }
+  &.right { float: right; margin-left: 1.5em; }
+  &.center { display:block; margin: 0 auto 1.5em; }
+  &.left, &.right { margin-bottom: .8em; }
+}
+
+@media only screen and (min-width: 550px) {
+  body > header {
+    padding-bottom: 1em;
+  }
+}
+
+#main, #content, .sidebar {
+  @extend .group;
+}
+
+@media only screen and (min-width: 768px) {
+  body {
+    -webkit-text-size-adjust: auto;
+    padding: 1.2em 1.5em;
+  }
+
+  body > header {
+    display: none;
+  }
+
+  .side-header {
+    display: block;
+  }
+
+  #main {
+    padding: 0;
+    margin: 0 auto;
+  }
+
+  #content {
+    overflow: visible;
+    margin-right: $sidebar-width-medium;
+    position: relative;
+
+    .no-sidebar & {
+      margin-right: 0; border-right: 0;
+    }
+
+    > div,
+    > article {
+      float: left;
+    }
+  }
+
+  aside.sidebar {
+    display: block; // Reveals sidebar in right nav.
+    width: $sidebar-width-medium - $sidebar-pad-medium*2;
+    background: none;
+    clear: none;
+    float: left;
+    margin: 0 -100% 0 0;
+    padding: 1em 2em;
+
+    section {
+      width: auto;
+      margin-left: 0;
+      &.odd, &.even { float: none; width: auto; margin-left: 0; }
+    }
+  }
+}
+
+@media only screen and (min-width: 992px) {
+  body {
+    padding: 2em 1.5em;
+
+    > header {
+      font-size: 1em;
+    }
+  }
+
+  #content {
+    margin-right: $sidebar-width-wide;
+  }
+
+  aside.sidebar {
+    width: $sidebar-width-wide - $sidebar-pad-wide * 2;
+    padding: 1em 2em;
+  }
+}
+
+@if $indented-lists == false {
+  @media only screen and (min-width: 768px) {
+    ul, ol { margin-left: 0; }
+  }
+}

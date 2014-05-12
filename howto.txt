@@ -1,0 +1,5 @@
+python -m SimpleHTTPServer
+http://octopress.org/docs/blogging/
+rake generate
+rake watch
+rake preview

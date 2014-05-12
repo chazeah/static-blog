@@ -1,0 +1,26 @@
+$noise-bg: image-url('noise.png') top left;
+
+// Main Link Colors
+$link-color: #4783c4;
+$link-color-hover: #1598FF;
+$link-color-visited: $link-color;
+$link-color-active: $link-color-hover;
+
+// Main Section Colors
+$page-bg: #eee;
+$article-bg: #fff;
+$article-border: transparent;
+
+$title-color: #000;
+$subtitle-color: #aaa;
+
+$text-color: #222;
+$text-color-light: #aaa;
+$type-border: #ddd;
+
+/* Sidebar colors */
+$sidebar-bg: transparent;
+$sidebar-link-color: #333;
+$sidebar-link-color-hover: #000;
+$sidebar-link-color-active: $sidebar-link-color-hover;
+$sidebar-color: #4b4b4b;
